@@ -1,6 +1,7 @@
 {
   "name": "jordo_com",
   "version": "0.1.0",
+  "license": "UNLICENSED",
   "homepage": "https://jordonleach.dev",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

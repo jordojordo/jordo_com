@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Avatar, Menu, Dropdown, Icon, message } from 'antd';
+import { Avatar, Menu, Dropdown, message } from 'antd';
 import styled from 'styled-components';
 
 import UpdateTime from '../components/Time';
