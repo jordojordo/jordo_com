@@ -1,0 +1,16 @@
+$break-s: 576px
+$break-m: 768px
+$break-l: 992px
+$break-xl: 1200px
+
+.container
+  max-width: $break-xl
+  @media screen and (max-width: $break-l)
+    max-width: $break-l
+  @media screen and (max-width: $break-m)
+    max-width: $break-m
+  @media screen and (max-width: $break-s)
+    max-width: $break-s
+
+.hidden
+  display: none !important
