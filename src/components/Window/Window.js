@@ -8,7 +8,7 @@ const Div = styled.div`
   overflow: hidden;
 `;
 
-const Window = () => {
+const Window = props => {
   return (
     <Div id={"windowDiv"}>
       <Rnd
@@ -20,7 +20,9 @@ const Window = () => {
           height: 200
         }}
       >
-        <Box />
+        <Box>
+          {props.children}
+        </Box>
       </Rnd>
     </Div>
   );

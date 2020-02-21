@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const TimeContainer = styled.div`
   display: flex;
   align-items: center;
+  color: #CDE1E3;
 `;
 
 export default function UpdateTime() {

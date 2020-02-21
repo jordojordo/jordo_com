@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Avatar, Menu, Dropdown, message } from "antd";
 import styled from "styled-components";
 
-import UpdateTime from "../components/Time/Time";
+import UpdateTime from "../../components/Time/Time";
 
 // Styles
 const MenuContainer = styled.div`
   display: flex;
-  background: #fff;
+  background: #555D5E;
   padding: 0.25rem 1rem;
   align-items: baseline;
   justify-content: space-between;
@@ -18,7 +18,7 @@ let AvatarStyled = styled(Avatar)`
 `;
 
 const Link = styled.a`
-  color: #666;
+  color: #CDE1E3;
   font-weight: 400;
   margin: 0 0.75rem;
   &.active {
