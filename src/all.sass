@@ -2,8 +2,19 @@ $break-s: 576px
 $break-m: 768px
 $break-l: 992px
 $break-xl: 1200px
-  
+
+.container-fluid
+  display: flex
+  justify-content: center
+  align-items: center
+
 .container
+  width: 100%
+  display: flex
+  justify-content: center
+  bottom: 0
+  margin-bottom: 1rem
+  position: absolute
   max-width: $break-xl
   @media screen and (max-width: $break-l)
     max-width: $break-l
@@ -11,6 +22,10 @@ $break-xl: 1200px
     max-width: $break-m
   @media screen and (max-width: $break-s)
     max-width: $break-s
+
+.row
+  display: flex
+  flex-flow: row
 
 .hidden
   display: none !important
