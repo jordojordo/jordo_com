@@ -5,7 +5,7 @@ import Third from "../../components/BoxContent/Third/Third";
 
 const One = () => {
   return (
-    <Window>
+    <Window width={150} height={180}>
       <Third />
     </Window>
   );

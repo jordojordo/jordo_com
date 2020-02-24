@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 const Div = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 45px;
   width: 45px;
   cursor: pointer;
@@ -16,7 +19,9 @@ const Div = styled(Link)`
 
 const Button = props => {
   return (
-    <Div to={props.route} />
+    <Div to={props.route}>
+      {props.children}
+    </Div>
   )
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import Button from '../../components/Button/Button';
 
 const Div = styled('div')`
@@ -26,7 +27,9 @@ const Taskbar = () => {
     <div className='container-fluid'>
       <div className='container'>
         <Div>
-          <Button route={`../../routes/One`} />
+          <Button route={`../../routes/One`}>
+            <FontAwesomeIcon icon={faCoffee} />
+          </Button>
           <Button route={`../../routes/Two`} />
           <Button route={`../../routes/Three`} />
         </Div>

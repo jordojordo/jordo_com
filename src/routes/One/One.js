@@ -5,7 +5,7 @@ import First from "../../components/BoxContent/First/First";
 
 const One = () => {
   return (
-    <Window>
+    <Window width={500} height={300}>
       <First />
     </Window>
   );

@@ -8,20 +8,26 @@ const Div = styled.div`
   overflow: hidden;
 `;
 
-// Rnd can't take a percentage for default positioning
-const calcWidth = ((35 / 100) * window.innerWidth);
-const calcHeight = ((35 / 100) * window.innerHeight);
-
 const Window = props => {
+  // Rnd can't take a percentage for default positioning
+  let width = props.width;
+  let height = props.height;
+
+  const calcBoxCenter = (
+    (width / 2) + (height / 2)
+  );
+  const calcWindowWidth = ((window.innerWidth - calcBoxCenter) / 2);
+  const calcWindowHeight = ((window.innerHeight - calcBoxCenter) / 2);
+
   return (
     <Div id={"windowDiv"}>
       <Rnd
         id={"react-draggable"}
         default={{
-          x: calcWidth,
-          y: calcHeight,
-          width: 320,
-          height: 200
+          x: calcWindowWidth,
+          y: calcWindowHeight,
+          width: width,
+          height: height
         }}
       >
         <Box>{props.children}</Box>
