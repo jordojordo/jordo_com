@@ -1,20 +1,21 @@
-import React from 'react';
-import { Avatar, Menu, Dropdown, message } from 'antd';
-import styled from 'styled-components';
+import React from "react";
+import { Menu, Dropdown, message } from "antd";
+import styled from "styled-components";
 
-import UpdateTime from '../../components/Time/Time';
+import UpdateTime from "../../components/Time/Time";
+import favicon from "../../assets/favicon.ico";
 
 // Styles
 const MenuContainer = styled.div`
   display: flex;
   background: #555d5e;
   padding: 0.25rem 1rem;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 `;
 
-let AvatarStyled = styled(Avatar)`
-  margin: 0 0.5rem;
+const Div = styled.div`
+  align-items: center;
 `;
 
 const Link = styled.a`
@@ -24,6 +25,15 @@ const Link = styled.a`
   &.active {
     font-weight: 700;
   }
+`;
+
+const Img = styled.div`
+  width: 50px;
+  height: 50px;
+  margin: 0 0.5rem;
+  border-radius: 12px;
+  background: hsla(187, 100%, 85%, .3) center / 70% no-repeat url(${favicon});
+  cursor: pointer;
 `;
 
 const Time = styled(UpdateTime)``;
@@ -36,27 +46,27 @@ const Navbar = () => {
   const hoverFile = () => {
     return (
       <Menu onClick={onClick}>
-        <Menu.Item key='1'>Projects</Menu.Item>
-        <Menu.Item key='2'>Blog</Menu.Item>
+        <Menu.Item key="1">Projects</Menu.Item>
+        <Menu.Item key="2">Blog</Menu.Item>
       </Menu>
     );
   };
 
   return (
     <MenuContainer>
-      <div>
-        <AvatarStyled icon='user' />
-        <Link className='active'>Jordo</Link>
+      <Div className="row">
+        <Img />
+        <Link className="active">Jordo</Link>
         <Dropdown overlay={hoverFile}>
-          <Link className='ant-dropdown-link' href='#'>
+          <Link className="ant-dropdown-link" href="#">
             File
           </Link>
         </Dropdown>
         <Link>Edit</Link>
-      </div>
-      <div className='row'>
+      </Div>
+      <Div className="row">
         <Time />
-      </div>
+      </Div>
     </MenuContainer>
   );
 };

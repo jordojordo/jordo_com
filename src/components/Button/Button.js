@@ -6,16 +6,22 @@ const Div = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 45px;
-  width: 45px;
+  height: 50px;
+  width: 50px;
   cursor: pointer;
   border-radius: 55px;
   background: transparent;
   box-shadow: -7px 7px 14px #70b3bc, 7px -7px 14px #98f2fe;
+  border: 2px solid hsl(185, 28%, 85%, .5);
+  transition: .1s ease;
+  &:focus {
+    border: 2px solid hsl(187, 5%, 35%, .75);
+  }
   &:active {
     box-shadow: inset 7px 7px 14px #70b3bc, inset -7px -7px 14px #98f2fe;
   }
 `;
+
 
 const Button = props => {
   return (
