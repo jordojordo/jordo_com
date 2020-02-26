@@ -1,5 +1,5 @@
 # Using the node alpine image to build the React app
-image: node:alpine
+image: mhart/alpine-node:11
 
 # Announce the URL as per CRA docs
 # https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#advanced-configuration
@@ -14,6 +14,7 @@ cache:
 # Name the stages involved in the pipeline
 stages:
 - deploy
+- test
 
 # Job name for gitlab to recognise this results in assets for Gitlab Pages
 # https://docs.gitlab.com/ee/user/project/pages/introduction.html#gitlab-pages-requirements
@@ -30,3 +31,16 @@ pages:
     - public # The built files for Gitlab Pages to serve
   only:
   - master # Only run on master branch
+
+test:
+  stage: test
+  script:
+    - yarn install
+    - yarn run build
+    - mv public _public
+    - mv build public
+  artifacts:
+    paths:
+      - test
+  except:
+    - master

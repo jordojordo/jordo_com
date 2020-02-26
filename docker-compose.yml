@@ -1,17 +1,16 @@
 version: '3.7'
-
 services:
 
-  sample:
-    container_name: jordo_com
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - '.:/app'
-      - '/app/node_modules'
-    ports:
-      - '3001:3000'
-    environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
+    jordo_com:
+        container_name: jordo_com
+        build: ./ 
+        ports:
+            - "8000:80"
+        labels:
+            NAME: "jordo_com"
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        driver: bridge
