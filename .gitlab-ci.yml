@@ -75,7 +75,7 @@
       - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     script:
       - docker build -t jordo_com .
-      - docker tag jordo_test $CI_REGISTRY_IMAGE:test
+      - docker tag jordo_com $CI_REGISTRY_IMAGE:test
       - docker push $CI_REGISTRY_IMAGE:test
       
   build_dev:
@@ -93,7 +93,7 @@
       - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     script:
       - docker build -t jordo_com .
-      - docker tag jordo_dev $CI_REGISTRY_IMAGE:dev
+      - docker tag jordo_com $CI_REGISTRY_IMAGE:dev
       - docker push $CI_REGISTRY_IMAGE:dev
       - docker run -p 80:80 jordo_com
   
