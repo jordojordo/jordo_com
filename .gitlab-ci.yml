@@ -13,13 +13,14 @@ cache:
 
 # Name the stages involved in the pipeline
 stages:
-- deploy
+- deploy-pages
+- deploy-prod
 - test
 
 # Job name for gitlab to recognise this results in assets for Gitlab Pages
 # https://docs.gitlab.com/ee/user/project/pages/introduction.html#gitlab-pages-requirements
 pages:
-  stage: deploy
+  stage: deploy-pages
   script:
     - yarn install # Install all dependencies
     - cp public/index.html public/404.html # Not necessary, but helps with https://medium.com/@pshrmn/demystifying-single-page-applications-3068d0555d46
@@ -31,6 +32,13 @@ pages:
     - public # The built files for Gitlab Pages to serve
   only:
   - master # Only run on master branch
+
+prod:
+  stage: deploy-prod
+  script:
+    - docker build -t jordo_com .
+  only:
+    - master
 
 test:
   stage: test
