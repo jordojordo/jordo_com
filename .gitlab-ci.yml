@@ -95,7 +95,6 @@
       - docker build -t jordo_com .
       - docker tag jordo_com $CI_REGISTRY_IMAGE:dev
       - docker push $CI_REGISTRY_IMAGE:dev
-      - docker run -p 80:80 jordo_com
   
   build_prod:
     when: manual
