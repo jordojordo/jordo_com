@@ -1,27 +1,17 @@
-# FROM mhart/alpine-node:11 AS builder
-# WORKDIR /app
-# COPY . .
-# RUN npm install react-scripts -g --silent
-# RUN yarn install
-# RUN yarn run build
-
-# FROM mhart/alpine-node
-# RUN yarn global add serve
-# WORKDIR /app
-# COPY --from=builder /app/build .
-# CMD ["serve", "-p", "80", "-s", "."]doc
-
+# Stage 0, "build-stage", based on Node.js, to build and compile the frontend
 FROM tiangolo/node-frontend:10 as build-stage
 
 WORKDIR /app
 
-COPY package.json /app/
+COPY package*.json /app/
 
 RUN npm install
 
-COPY . .
+COPY ./ /app/
 
-RUN yarn build
+# RUN CI=true npm test
+
+RUN npm run build
 
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
 FROM nginx:1.15
