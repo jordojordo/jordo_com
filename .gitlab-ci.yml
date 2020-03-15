@@ -56,5 +56,5 @@
     script:
       - docker build -t jordo_com .
       - /bin/sh ./scripts/deploy.sh
-      - firebase deploy
+      - firebase deploy --only hosting
 
