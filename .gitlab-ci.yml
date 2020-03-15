@@ -65,7 +65,7 @@ deploy_prod:
   only:
     - master
   script:
-    - npm install -g firebase tools
+    - npm install firebase tools
     - yarn install
     - yarn build
     - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_TOKEN
