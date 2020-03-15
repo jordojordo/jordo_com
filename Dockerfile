@@ -15,7 +15,7 @@ RUN npm install -g firebase-tools
 
 RUN npm run build
 
-RUN firebase deploy --only hosting
+# RUN firebase deploy --only hosting
 
 # # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
 # FROM nginx:1.15
