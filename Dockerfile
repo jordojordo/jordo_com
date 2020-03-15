@@ -15,15 +15,15 @@ RUN npm install -g firebase-tools
 
 RUN npm run build
 
-# Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
-FROM nginx:1.15
+# # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
+# FROM nginx:1.15
 
-COPY --from=build-stage /app/build/ /var/www
+# COPY --from=build-stage /app/build/ /var/www
 
-# Copy the default nginx.conf provided by tiangolo/node-frontend
-COPY --from=build-stage /nginx.conf /etc/nginx/conf.d/default.conf
+# # Copy the default nginx.conf provided by tiangolo/node-frontend
+# COPY --from=build-stage /nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
+# EXPOSE 80
 
-ENTRYPOINT ["nginx","-g","daemon off;"]
+# ENTRYPOINT ["nginx","-g","daemon off;"]
 
