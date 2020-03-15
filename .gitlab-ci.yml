@@ -1,82 +1,28 @@
-# # Using the node alpine image to build the React app
-# image: mhart/alpine-node:11
-
-# # Announce the URL as per CRA docs
-# # https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#advanced-configuration
-# variables:
-#   PUBLIC_URL: /jordo_com
-
-# # Cache node modules - speeds up future builds
-# cache:
-#   paths:
-#   - node_modules
-
-# # Name the stages involved in the pipeline
-# stages:
-# - deploy-pages
-# - deploy-prod
-# - test
-
-# # Job name for gitlab to recognise this results in assets for Gitlab Pages
-# # https://docs.gitlab.com/ee/user/project/pages/introduction.html#gitlab-pages-requirements
-# pages:
-#   stage: deploy-pages
-#   script:
-#     - yarn install # Install all dependencies
-#     - cp public/index.html public/404.html # Not necessary, but helps with https://medium.com/@pshrmn/demystifying-single-page-applications-3068d0555d46
-#     - yarn run build # Build for prod
-#     - mv public _public # CRA and gitlab pages both use the public folder. Only do this in a build pipeline.
-#     - mv build public # Move build files to public dir for Gitlab Pages
-#   artifacts:
-#     paths:
-#     - public # The built files for Gitlab Pages to serve
-#   only:
-#   - master # Only run on master branch
-
-# prod:
-#   stage: deploy-prod
-#   script:
-#     - docker build -t jordo_com .
-#   only:
-#     - master
-
-# test:
-#   stage: test
-#   script:
-#     - yarn install
-#     - yarn run build
-#     - mv public _public
-#     - mv build public
-#   artifacts:
-#     paths:
-#       - test
-#   except:
-#     - master
 ---
   image: docker:latest
   
   stages:
-    - build_test
+    # - build_test
     - build_dev
     - build_prod
   
-  build_test:
-    stage: build_test
-    services:
-    - name: docker:dind
-      entrypoint: ["env", "-u", "DOCKER_HOST"]
-      command: ["dockerd-entrypoint.sh"]
-    variables:
-      IMAGE_TAG:  $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
-      DOCKER_HOST: tcp://docker:2375/
-      DOCKER_DRIVER: overlay2
-      DOCKER_TLS_CERTDIR: ""
-    before_script: 
-      - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    script:
-      - docker build -t jordo_com .
-      - docker tag jordo_com $CI_REGISTRY_IMAGE:test
-      - docker push $CI_REGISTRY_IMAGE:test
+  # build_test:
+  #   stage: build_test
+  #   services:
+  #   - name: docker:dind
+  #     entrypoint: ["env", "-u", "DOCKER_HOST"]
+  #     command: ["dockerd-entrypoint.sh"]
+  #   variables:
+  #     IMAGE_TAG:  $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+  #     DOCKER_HOST: tcp://docker:2375/
+  #     DOCKER_DRIVER: overlay2
+  #     DOCKER_TLS_CERTDIR: ""
+  #   before_script: 
+  #     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  #   script:
+  #     - docker build -t jordo_com .
+  #     - docker tag jordo_com $CI_REGISTRY_IMAGE:test
+  #     - docker push $CI_REGISTRY_IMAGE:test
       
   build_dev:
     stage: build_dev
