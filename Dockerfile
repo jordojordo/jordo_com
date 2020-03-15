@@ -11,6 +11,10 @@ COPY ./ /app/
 
 # RUN CI=true npm test
 
+RUN npm install -g firebase-tools
+
+RUN npm install -g bower
+
 RUN npm run build
 
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx

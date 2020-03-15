@@ -38,8 +38,6 @@
     before_script: 
       - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     script:
-      - npm install -g firebase-tools
-      - npm install -g bower
       - docker build -t jordo_com .
       - docker tag jordo_com $CI_REGISTRY_IMAGE:dev
       - docker push $CI_REGISTRY_IMAGE:dev
@@ -56,8 +54,6 @@
       DOCKER_DRIVER: overlay2
       DOCKER_TLS_CERTDIR: ""
     script:
-      - npm install -g firebase-tools
-      - npm install -g bower
       - docker build -t jordo_com .
       - docker run --rm -d -p 80:80 jordo_com
       - firebase use jordo-com --token $FIREBASE_TOKEN
