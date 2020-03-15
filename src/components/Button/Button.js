@@ -1,5 +1,5 @@
 import React from "react";
-import { MemoryRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Div = styled(Link)`
@@ -23,11 +23,7 @@ const Div = styled(Link)`
 `;
 
 const Button = props => {
-  return (
-    <MemoryRouter>
-      <Div to={props.route}>{props.children}</Div>
-    </MemoryRouter>
-  );
+  return <Div to={props.route}>{props.children}</Div>;
 };
 
 export default Button;
