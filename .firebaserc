@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "jordo-com"
+  },
+  "targets": {
+    "jordo-com": {
+      "hosting": {
+        "test": [
+          "jordo-com"
+        ]
+      }
+    }
   }
 }
