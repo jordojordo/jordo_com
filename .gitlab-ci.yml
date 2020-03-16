@@ -72,6 +72,7 @@ deploy_test:
     - firebase deploy --only hosting:test -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_TOKEN
 
 deploy_prod:
+  when: manual
   image: node:latest
   stage: deploy
   environment:

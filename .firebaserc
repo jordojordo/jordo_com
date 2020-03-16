@@ -6,6 +6,9 @@
     "jordo-com": {
       "hosting": {
         "test": [
+          "test-jordo-com"
+        ],
+        "production": [
           "jordo-com"
         ]
       }
