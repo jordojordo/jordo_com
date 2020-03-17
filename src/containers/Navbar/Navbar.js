@@ -1,6 +1,7 @@
 import React from "react";
 import { Menu, Dropdown, message } from "antd";
 import styled from "styled-components";
+import Tilt from "react-tilt";
 
 import UpdateTime from "../../components/Time/Time";
 import favicon from "../../assets/favicon.ico";
@@ -32,7 +33,7 @@ const Img = styled.div`
   height: 50px;
   margin: 0 0.5rem;
   border-radius: 12px;
-  background: hsla(187, 100%, 85%, .3) center / 70% no-repeat url(${favicon});
+  background: hsla(187, 100%, 85%, 0.3) center / 70% no-repeat url(${favicon});
   cursor: pointer;
 `;
 
@@ -55,7 +56,9 @@ const Navbar = () => {
   return (
     <MenuContainer>
       <Div className="row">
-        <Img />
+        <Tilt className="Tilt" option={{ max: 25 }}>
+          <Img className="Tilt-inner" />
+        </Tilt>
         <Link className="active">Jordo</Link>
         <Dropdown overlay={hoverFile}>
           <Link className="ant-dropdown-link" href="#">
