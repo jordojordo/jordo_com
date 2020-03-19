@@ -24,7 +24,6 @@ const Div = styled.div`
   }
 `;
 
-
 const Taskbar = () => {
   return (
     <div className="container-fluid">

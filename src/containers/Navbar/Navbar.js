@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Menu, Dropdown, message } from "antd";
 import styled from "styled-components";
 import Tilt from "react-tilt";
@@ -19,7 +20,7 @@ const Div = styled.div`
   align-items: center;
 `;
 
-const Link = styled.a`
+const StyledLink = styled.a`
   color: #cde1e3;
   font-weight: 400;
   margin: 0 0.75rem;
@@ -47,7 +48,9 @@ const Navbar = () => {
   const hoverFile = () => {
     return (
       <Menu onClick={onClick}>
-        <Menu.Item key="1">Projects</Menu.Item>
+        <Menu.Item key="1">
+          <Link to={`../../routes/Cadmium`}>Projects</Link>
+        </Menu.Item>
         <Menu.Item key="2">Blog</Menu.Item>
       </Menu>
     );
@@ -59,13 +62,13 @@ const Navbar = () => {
         <Tilt className="Tilt" option={{ max: 25 }}>
           <Img className="Tilt-inner" />
         </Tilt>
-        <Link className="active">Jordo</Link>
+        <StyledLink className="active">Jordo</StyledLink>
         <Dropdown overlay={hoverFile}>
-          <Link className="ant-dropdown-link" href="#">
+          <StyledLink className="ant-dropdown-StyledLink" href="#">
             File
-          </Link>
+          </StyledLink>
         </Dropdown>
-        <Link>Edit</Link>
+        <StyledLink>Edit</StyledLink>
       </Div>
       <Div className="row">
         <Time />
