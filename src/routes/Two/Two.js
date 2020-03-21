@@ -5,7 +5,7 @@ import Second from "../../components/BoxContent/Second/Second";
 
 const Two = () => {
   return (
-    <Window width={200} height={200}>
+    <Window width={500} height={400} title="Projects">
       <Second />
     </Window>
   );

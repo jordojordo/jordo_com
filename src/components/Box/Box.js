@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Div = styled.div`
   height: 100%;
   margin: 0;
   background: #84d2dd;
-  border: 1px solid hsl(185, 28%, 85%, .5);
+  border: 1px solid hsl(185, 28%, 85%, 0.5);
   border-radius: 25px;
   box-shadow: -20px 20px 60px #70b3bc, 20px -20px 60px #98f2fe;
+  overflow: hidden;
 `;
 
 const TopBar = styled.div`
@@ -22,32 +23,43 @@ const TopBar = styled.div`
   align-items: center;
 `;
 
+const CloseContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const Close = styled(Link)`
   position: absolute;
   display: flex;
   justify-content: center;
   width: 2rem;
   height: 1rem;
-  padding: .1rem;
+  padding: 0.1rem;
   background-color: transparent;
   cursor: pointer;
   margin-left: 1.2rem;
-  border: 2px solid hsl(185, 28%, 85%, .5);
+  border: 2px solid hsl(185, 28%, 85%, 0.5);
   border-radius: 55px;
   box-shadow: -1px 1px 2px #70b3bc, 1px -1px 2px #98f2fe;
-  transition: .1s ease;
+  transition: 0.1s ease;
   &:focus {
-    border: 2px solid hsl(187, 5%, 35%, .75);
+    border: 2px solid hsl(187, 5%, 35%, 0.75);
   }
   &:active {
     box-shadow: inset 1px 1px 2px #70b3bc, inset -1px -1px 2px #98f2fe;
   }
 `;
 
+const Title = styled.div``;
+
 const Box = props => (
   <Div>
     <TopBar>
-      <Close to={`/`} />
+      <CloseContainer>
+        <Close to={`/`} />
+      </CloseContainer>
+      <Title>{props.title}</Title>
+      <div />
     </TopBar>
     {props.children}
   </Div>

@@ -11,6 +11,9 @@ import One from "./routes/One/One";
 import Two from "./routes/Two/Two";
 import Three from "./routes/Three/Three";
 import Cadmium from "./routes/Cadmium/Cadmium";
+import Eventscribe from "./routes/Eventscribe/Eventscribe";
+import Scorecard from "./routes/Scorecard/Scorecard";
+import Thread from "./routes/Thread/Thread";
 
 const App = () => {
   return (
@@ -21,6 +24,9 @@ const App = () => {
         <Route path="/routes/Two" component={Two} />
         <Route path="/routes/Three" component={Three} />
         <Route path="/routes/Cadmium" component={Cadmium} />
+        <Route path="/routes/Eventscribe" component={Eventscribe} />
+        <Route path="/routes/Scorecard" component={Scorecard} />
+        <Route path="/routes/Thread" component={Thread} />
         <Taskbar />
       </Route>
     </Router>

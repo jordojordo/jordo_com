@@ -10,8 +10,7 @@ const Div = styled.div`
 
 const Window = props => {
   // Rnd can't take a percentage for default positioning
-  let width = props.width;
-  let height = props.height;
+  let { width, height, posX, posY } = props 
 
   const calcBoxCenter = (
     (width / 2) + (height / 2)
@@ -24,13 +23,13 @@ const Window = props => {
       <Rnd
         id={"react-draggable"}
         default={{
-          x: calcWindowWidth,
-          y: calcWindowHeight,
+          x: posX | calcWindowWidth,
+          y: posY | calcWindowHeight,
           width: width,
           height: height
         }}
       >
-        <Box>{props.children}</Box>
+        <Box title={props.title}>{props.children}</Box>
       </Rnd>
     </Div>
   );
