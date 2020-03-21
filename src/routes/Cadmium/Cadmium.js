@@ -1,12 +1,12 @@
 import React from "react";
 
 import Window from "../../components/Window/Window";
-import CadmiumCD from "../../components/BoxContent/Projects/CadmiumCD";
+import ProjectCadmium from "../../components/BoxContent/Projects/ProjectCadmium";
 
 const Cadmium = () => {
   return (
     <Window width={500} height={300}>
-      <CadmiumCD />
+      <ProjectCadmium />
     </Window>
   );
 };

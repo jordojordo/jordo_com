@@ -35,7 +35,7 @@ const Second = () => {
             />
           </ProjectButton>
         </ButtonContainer>
-        <Link route={`../../routes/Cadmium`}>CadmiumCD</Link>
+        <Link to={`../../routes/Cadmium`}>CadmiumCD</Link>
       </Container>
     </Div>
   );
