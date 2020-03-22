@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Menu, Dropdown, message } from "antd";
+import { Menu, Dropdown } from "antd";
 import styled from "styled-components";
 import Tilt from "react-tilt";
 
