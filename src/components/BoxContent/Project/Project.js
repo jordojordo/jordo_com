@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Element } from "react-scroll";
 import { Typography } from "antd";
 import Img from "react-image";
 import { Spin } from "antd";
+import ReactPlayer from "react-player";
 
 const { Text } = Typography;
 
@@ -30,6 +31,7 @@ const Div = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
+  margin: 1rem 0;
 `;
 
 const Image = styled(Img)`
@@ -38,6 +40,14 @@ const Image = styled(Img)`
   bottom: 2rem;
   margin-top: 2rem;
   border-radius: 25px;
+`;
+
+const VideoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
 `;
 
 const Spinner = () => {
@@ -49,6 +59,18 @@ const Spinner = () => {
 };
 
 const Project = props => {
+  const [showSpinner, setShowSpinner] = useState(true);
+
+  let overFlow = props.overFlow ? props.overFlow : "scroll";
+
+  const loadSpinner = () => {
+    return (
+      showSpinner ? (
+        <Spinner />
+      ) : null
+    )
+  };
+
   return (
     <StyledElement
       name="proCad"
@@ -56,14 +78,26 @@ const Project = props => {
       id="containerElement"
       style={{
         position: "relative",
-        overflow: "scroll"
+        overflow: overFlow
       }}
     >
-      <Image
-        src={props.imageSrc ? props.imageSrc : null}
-        loader={<Spinner />}
-        alt={`Image of ${props.children} landing page`}
-      />
+      {props.imageSrc ? (
+        <Image
+          src={props.imageSrc ? props.imageSrc : null}
+          loader={<Spinner />}
+          alt={`Image of ${props.children} landing page`}
+        />
+      ) : (
+        <VideoContainer>
+          <ReactPlayer
+            onBuffer={() => loadSpinner()}
+            onPlay={() => setShowSpinner(false)}
+            url={props.videoSrc}
+            playing
+            loop
+          />
+        </VideoContainer>
+      )}
 
       <Heading>
         <Text>{props.projectDescription}</Text>

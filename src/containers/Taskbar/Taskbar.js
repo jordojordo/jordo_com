@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserAstronaut, faCubes, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import Button from "../../components/Button/Button";
+import ButtonContainer from "../../containers/ButtonContainer/ButtonContainer"
 
 const Div = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 75px;
+  height: 120px;
   width: 60%;
   border-radius: 50px;
   background: transparent;
@@ -29,15 +28,30 @@ const Taskbar = () => {
     <div className="container-fluid">
       <div className="container">
         <Div>
-          <Button route={`../../routes/One`}>
-            <FontAwesomeIcon icon={faUserAstronaut} color="hsl(9, 34%, 50%, .7)" size="2x"/>
-          </Button>
-          <Button route={`../../routes/Two`}>
-            <FontAwesomeIcon icon={faCubes} color="hsl(9, 34%, 50%, .7)" size="2x"/>
-          </Button>
-          <Button route={`../../routes/Three`}>
-            <FontAwesomeIcon icon={faEnvelope} color="hsl(9, 34%, 50%, .7)" size="2x"/>
-          </Button>
+          <ButtonContainer
+            route="../../routes/About"
+            faIcon={faUserAstronaut}
+            routeName="About"
+            buttonWrapMargin=".25rem"
+            buttonwidth="75px"
+            buttonheight="75px"
+          />
+          <ButtonContainer
+            route="../../routes/Projects"
+            faIcon={faCubes}
+            routeName="Projects"
+            buttonWrapMargin=".25rem"
+            buttonwidth="75px"
+            buttonheight="75px"
+          />
+          <ButtonContainer
+            route="../../routes/Contact"
+            faIcon={faEnvelope}
+            routeName="Contact"
+            buttonWrapMargin=".25rem"
+            buttonwidth="75px"
+            buttonheight="75px"
+          />
         </Div>
       </div>
     </div>

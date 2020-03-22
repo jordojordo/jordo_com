@@ -20,7 +20,7 @@ const Div = styled.div`
   align-items: center;
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   color: #cde1e3;
   font-weight: 400;
   margin: 0 0.75rem;
@@ -42,14 +42,14 @@ const Time = styled(UpdateTime)``;
 
 const Navbar = () => {
   const onClick = ({ key }) => {
-    message.info(`Click on item ${key}`);
+    console.log(`Click on item ${key}`);
   };
 
   const hoverFile = () => {
     return (
       <Menu onClick={onClick}>
         <Menu.Item key="1">
-          <Link to={`../../routes/Cadmium`}>Projects</Link>
+          <Link to={`../../routes/Two`}>Projects</Link>
         </Menu.Item>
         <Menu.Item key="2">Blog</Menu.Item>
       </Menu>
@@ -59,16 +59,19 @@ const Navbar = () => {
   return (
     <MenuContainer>
       <Div className="row">
-        <Tilt className="Tilt" option={{ max: 25 }}>
-          <Img className="Tilt-inner" />
-        </Tilt>
-        <StyledLink className="active">Jordo</StyledLink>
+        <Link to={`/`}>
+          <Tilt className="Tilt" option={{ max: 25 }}>
+            <Img className="Tilt-inner" />
+          </Tilt>
+        </Link>
+
+        <StyledLink className="active" to={`/`} >Jordo</StyledLink>
         <Dropdown overlay={hoverFile}>
-          <StyledLink className="ant-dropdown-StyledLink" href="#">
+          <StyledLink className="ant-dropdown-StyledLink" href="#" to={`/`}>
             File
           </StyledLink>
         </Dropdown>
-        <StyledLink>Edit</StyledLink>
+        <StyledLink to={`/`}>Edit</StyledLink>
       </Div>
       <Div className="row">
         <Time />

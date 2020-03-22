@@ -6,8 +6,8 @@ const Div = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  width: 50px;
+  width: ${props => (props.buttonwidth ? props.buttonwidth : "100px")};
+  height: ${props => (props.buttonheight ? props.buttonheight : "100px")};
   cursor: pointer;
   border-radius: 55px;
   background: transparent;
@@ -23,7 +23,15 @@ const Div = styled(Link)`
 `;
 
 const Button = props => {
-  return <Div to={props.route}>{props.children}</Div>;
+  return (
+    <Div
+      to={props.route}
+      buttonwidth={props.buttonwidth}
+      buttonheight={props.buttonheight}
+    >
+      {props.children}
+    </Div>
+  );
 };
 
 export default Button;
