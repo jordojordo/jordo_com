@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Img from "react-image";
+
+import Spinner from "../../components/Spinner/Spinner";
 import Button from "../../components/Button/Button";
 
 const StyledContainer = styled.div`
@@ -17,10 +20,10 @@ const ButtonWrapper = styled.div`
   margin: ${props => props.buttonWrapMargin ? props.buttonWrapMargin : "1rem"};
 `;
 
-const Image = styled.img`
+const Image = styled(Img)`
   width: 100%;
   padding: 1rem;
-  border-radius: ${props => props.borderRadius};
+  border-radius: ${props => props.borderradius ? props.borderradius : null};
 `;
 
 const StyledLink = styled(Link)`
@@ -36,7 +39,7 @@ const ButtonContainer = ({
   iconSrc,
   routeName,
   buttonWrapMargin,
-  borderRadius,
+  borderradius,
   buttonwidth,
   buttonheight
 }) => {
@@ -58,7 +61,8 @@ const ButtonContainer = ({
             <Image
               src={iconSrc}
               alt={`Icon for ${routeName}`}
-              borderRadius={borderRadius ? borderRadius : null}
+              loader={<Spinner />}
+              borderradius={borderradius ? borderradius : null}
             />
           )}
         </Button>

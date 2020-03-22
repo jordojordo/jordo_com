@@ -1,12 +1,12 @@
 import React from "react";
 
 import Window from "../../components/Window/Window";
-import First from "../../components/BoxContent/First/First";
+import AboutContent from "../../components/BoxContent/AboutContent/AboutContent";
 
 const About = () => {
   return (
-    <Window width={500} height={300}>
-      <First />
+    <Window width={500} height={400}>
+      <AboutContent />
     </Window>
   );
 };

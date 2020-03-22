@@ -42,7 +42,7 @@ const ProjectWindow = () => {
       <ButtonContainer
         route="../../routes/Endernet-Design"
         iconSrc={endernetIcon}
-        borderRadius="30px"
+        borderradius="30px"
         routeName="Endernet.Design"
       />
       <ButtonContainer

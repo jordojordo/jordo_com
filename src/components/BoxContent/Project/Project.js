@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { Element } from "react-scroll";
 import { Typography } from "antd";
 import Img from "react-image";
-import { Spin } from "antd";
 import ReactPlayer from "react-player";
+
+import Spinner from "../../Spinner/Spinner";
 
 const { Text } = Typography;
 
@@ -25,15 +26,6 @@ const StyledElement = styled(Element)`
   padding: 2rem;
 `;
 
-const Div = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  margin: 1rem 0;
-`;
-
 const Image = styled(Img)`
   width: 100%;
   position: relative;
@@ -49,14 +41,6 @@ const VideoContainer = styled.div`
   width: 100%;
   margin: 2rem 0;
 `;
-
-const Spinner = () => {
-  return (
-    <Div>
-      <Spin size="large" tip="Loading..." />
-    </Div>
-  );
-};
 
 const Project = props => {
   const [showSpinner, setShowSpinner] = useState(true);

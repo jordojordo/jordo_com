@@ -21,6 +21,7 @@ const TopBar = styled.div`
   justify-content: space-between;
   border-radius: 25px 25px 0 0;
   align-items: center;
+  overflow: hidden;
 `;
 
 const CloseContainer = styled.div`
