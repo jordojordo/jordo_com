@@ -5,7 +5,7 @@ import AboutContent from "../../components/BoxContent/AboutContent/AboutContent"
 
 const About = () => {
   return (
-    <Window width={500} height={400}>
+    <Window width={500} height={400} title="About Jordo">
       <AboutContent />
     </Window>
   );

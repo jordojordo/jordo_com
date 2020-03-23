@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import "antd/dist/antd.css";
 
 import "./App.sass";
@@ -21,6 +21,7 @@ const App = () => {
   return (
     <Router>
       <Route path="/">
+        <Redirect to="/routes/About" component={About}/>
         <Navbar />
         <Route path="/routes/About" component={About} />
         <Route path="/routes/Projects" component={Projects} />

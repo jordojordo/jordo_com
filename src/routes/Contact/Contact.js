@@ -1,12 +1,12 @@
 import React from "react";
 
 import Window from "../../components/Window/Window";
-import Third from "../../components/BoxContent/Third/Third";
+import ContactContent from "../../components/BoxContent/ContactContent/ContactContent";
 
 const Contact = () => {
   return (
-    <Window width={150} height={180}>
-      <Third />
+    <Window width={400} height={400} title="Contact">
+      <ContactContent />
     </Window>
   );
 };

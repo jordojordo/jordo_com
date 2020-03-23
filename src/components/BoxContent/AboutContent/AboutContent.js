@@ -42,7 +42,7 @@ const AboutContent = () => {
       <Title level={1}>Hello from Jordon Leach!</Title>
       <Text>
         I'm a Front End Developer with strong commitment to collaboration and
-        solutions-oriented problem-solving. Use various web design software to
+        solutions-oriented problem-solving. I use various web design software to
         develop customer-focused websites and designs.
       </Text>
     </Div>

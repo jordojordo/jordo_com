@@ -49,9 +49,11 @@ const Navbar = () => {
     return (
       <Menu onClick={onClick}>
         <Menu.Item key="1">
-          <Link to={`../../routes/Two`}>Projects</Link>
+          <Link to={`../../routes/Projects`}>Projects</Link>
         </Menu.Item>
-        <Menu.Item key="2">Blog</Menu.Item>
+        <Menu.Item key="2">
+          <a href="https://endernet.io">Blog</a>
+        </Menu.Item>
       </Menu>
     );
   };
@@ -71,7 +73,7 @@ const Navbar = () => {
             File
           </StyledLink>
         </Dropdown>
-        <StyledLink to={`/`}>Edit</StyledLink>
+        {/* <StyledLink to={`/`}>Edit</StyledLink> */}
       </Div>
       <Div className="row">
         <Time />
